@@ -1,11 +1,14 @@
 from __future__ import annotations
-from typing import *
+import json
 import time
 from threading import Thread
-from collections import deque
-import json
+from typing import *
 from websocket import create_connection
-from .auth import get_timestamp, sign
+
+from collections import deque
+
+from coinbase.auth import get_timestamp, sign
+
 
 class WebSocket(object):
     """
