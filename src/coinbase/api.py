@@ -1,8 +1,11 @@
 from __future__ import annotations
 from typing import *
-import requests
 import json
-from .auth import CoinbaseAuth
+
+import requests
+
+from coinbase.auth import CoinbaseAuth
+
 
 class Public(object):
     def __init__(self, sandbox: bool = False):

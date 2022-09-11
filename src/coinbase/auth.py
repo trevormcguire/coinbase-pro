@@ -1,13 +1,15 @@
-from typing import *
-from requests.auth import AuthBase
-import time
-import hmac
-import hashlib
 import base64
+import hashlib
+import hmac
+import time
+from typing import *
+
+from requests.auth import AuthBase
 
 
 def get_timestamp():
     return time.time()
+
 
 def sign(message, secret_key):
     message = message.encode('ascii')
