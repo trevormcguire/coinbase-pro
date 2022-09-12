@@ -213,11 +213,10 @@ class Private(object):
     
     @classmethod
     def from_file(cls, filepath: str, sandbox: bool = True) -> Private:
+        assert filepath[-5:] == ".json", "'filepath' must point to a json file"
         with open(filepath, "r") as f:
             text = f.read()
-            if filepath[-5:] == ".json":
-                creds = json.loads(text)
-        return cls(creds["b64_secret_key"], creds["api_key"], creds["passphrase"], sandbox=sandbox)
+        return cls(sandbox=sandbox, **json.loads(text))
         
     def request(self, method: str, endpoint: str, data: str = None, params=None):
         """
